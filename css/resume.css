@@ -1,0 +1,81 @@
+/* ============================================================
+   css/resume.css
+   Resume section — PDF preview + download/view buttons
+============================================================ */
+
+.res-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+}
+
+/* PDF preview box */
+.res-prev {
+  border-radius: var(--rad2);
+  background: var(--surf2);
+  border: 1px solid var(--bdr);
+  overflow: hidden;
+  aspect-ratio: 8.5 / 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 60px;
+  transition: all var(--tr);
+  position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.res-prev:hover {
+  border-color: var(--a);
+  box-shadow: var(--ringGlow);
+}
+.res-prev p {
+  font-size: 13px;
+  color: var(--txt2);
+  text-align: center;
+  padding: 0 28px;
+  line-height: 1.6;
+}
+.res-prev iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Right content column */
+.res-info h3 {
+  font-family: var(--ff);
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.res-info p {
+  color: var(--txt2);
+  font-size: 15px;
+  line-height: 1.82;
+  margin-bottom: 28px;
+}
+
+/* Upload box */
+.ubox {
+  padding: 22px;
+  border-radius: var(--rad2);
+  background: var(--surf);
+  border: 1px solid var(--bdr);
+  margin-bottom: 24px;
+}
+.ubox p {
+  font-size: 13px;
+  color: var(--txt2);
+  margin-bottom: 14px;
+}
+
+/* Button stack */
+.res-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

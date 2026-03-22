@@ -1,0 +1,65 @@
+/* ============================================================
+   css/responsive.css
+   Media queries for tablet and mobile
+============================================================ */
+
+/* ── Tablet / small desktop ── */
+@media (max-width: 960px) {
+
+  /* Hero — stack vertically */
+  .herow {
+    grid-template-columns: 1fr;
+    gap: 52px;
+    text-align: center;
+  }
+  .hero-l  { order: 2; }
+  .hero-r  { order: 1; justify-content: center; }
+  .hero-r::before {
+    right: 50%;
+    top: 52%;
+    transform: translate(50%, -50%);
+    width: 520px;
+    height: 520px;
+    opacity: .75;
+  }
+  .hero-btns,
+  .hero-stats { justify-content: center; }
+  .hero-desc  { margin: 0 auto 40px; }
+
+  /* Smaller profile ring */
+  .pro-outer { width: 280px; height: 280px; }
+
+  /* Collapse two-column layouts */
+  .about-grid,
+  .res-grid,
+  .con-grid   { grid-template-columns: 1fr; }
+
+  /* Hide desktop nav, show hamburger */
+  .nav-ul { display: none; }
+  .ham    { display: flex; }
+
+  /* Projects single column */
+  .proj-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+
+  /* Two-column skills grid */
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Tighter section padding */
+  .secw { padding: 80px 5%; }
+
+  /* Contact form — single column fields */
+  .f2 { grid-template-columns: 1fr; }
+
+  /* Smaller cert drop zone padding */
+  .cert-drop { padding: 32px 20px; }
+
+  /* Tighter form card padding */
+  .con-form { padding: 24px; }
+
+  /* Slightly smaller spotlight */
+  .hero-r::before { width: 440px; height: 440px; }
+}

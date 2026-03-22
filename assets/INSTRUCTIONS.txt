@@ -1,0 +1,8 @@
+Welcome to your assets folder!
+Please place your files here with these exact names for them to appear on your portfolio:
+
+1. Profile Photo: "profile.jpg"
+2. Resume: "resume.pdf"
+3. Certificates: "cert1.pdf", "cert2.pdf", "cert3.pdf", "cert4.pdf" (or any name you define in js/data.js)
+
+If you use different names, make sure to update the names in index.html and js/data.js!

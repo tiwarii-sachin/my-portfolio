@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Cloud & DevOps Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+    rel="stylesheet">
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Stylesheets — edit each file separately -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/loader.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/skills.css">
+  <link rel="stylesheet" href="css/projects.css">
+  <link rel="stylesheet" href="css/certificates.css">
+  <link rel="stylesheet" href="css/resume.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <!-- ===== LOADER ===== -->
+  <div id="loader">
+    <div class="l-logo">{ dev.portfolio }</div>
+    <div class="l-bar-bg">
+      <div class="l-bar"></div>
+    </div>
+    <div class="l-sub">Initializing experience...</div>
+  </div>
+
+  <!-- ===== THREE.JS CANVAS ===== -->
+  <canvas id="bgc"></canvas>
+
+  <!-- ===== MOBILE NAV ===== -->
+  <div id="mobnav">
+    <button class="mob-x" onclick="cMob()">✕</button>
+    <a href="#home" onclick="cMob()">Home</a>
+    <a href="#about" onclick="cMob()">About</a>
+    <a href="#skills" onclick="cMob()">Skills</a>
+    <a href="#projects" onclick="cMob()">Projects</a>
+    <a href="#certificates" onclick="cMob()">Certificates</a>
+    <a href="#resume" onclick="cMob()">Resume</a>
+    <a href="#contact" onclick="cMob()">Contact</a>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="nav">
+    <div class="navw">
+      <a class="nav-logo" href="#home">{ dev }</a>
+      <ul class="nav-ul">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-r">
+        <button class="ico-btn" id="thbtn" onclick="toggleTheme()">🌙</button>
+        <button class="ham" onclick="oMob()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HOME (NEW SECTION) ===== -->
+  <section class="sec" id="home">
+    <div class="secw" style="padding-top: 130px; padding-bottom: 60px;">
+      <div class="sech rev" style="margin-bottom: 0;">
+        <h2 class="sec-ttl">Welcome to <span class="g">My Portfolio</span></h2>
+        <p class="sec-sub">Explore my work, skills, certifications, and resume below.</p>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="herow">
+
+      <!-- Left Content -->
+      <div class="hero-l">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Available for opportunities
+        </div>
+        <h1 class="hero-name">
+          Hi, I'm<br>
+          <span class="g" id="heroName">Your Name</span>
+        </h1>
+        <div class="hero-role">
+          <span id="typed"></span><span class="cursor">|</span>
+        </div>
+        <p class="hero-desc" id="heroDesc">
+          Designing the Next Generation of Digital Experiences
+        </p>
+        <p class="hero-sub" id="heroSub"
+          style="margin-top:-20px; margin-bottom:40px; color:var(--txt3); max-width:500px; line-height:1.6; font-size:14px;">
+          Student at Lovely Professional University, Class of 2027. Passionate about creating seamless intersections
+          between human intuition and powerful technology.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-g">✉ Contact Me</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stats" id="heroStats">
+            <!-- Stats populated from data.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right — Profile Photo Ring -->
+      <div class="hero-r">
+        <div class="pro-outer">
+          <div class="pro-glow"></div>
+          <div class="ring1"></div>
+          <div class="ring2"></div>
+          <div class="ring-conic"></div>
+          <div class="pro-circle" id="proCircle">
+            <img src="assets/profile.png" alt="Please add assets/profile.png" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 80 80\' fill=\'none\'><circle cx=\'40\' cy=\'28\' r=\'18\' stroke=\'white\' stroke-width=\'1.5\'/><path d=\'M8 72c0-17.7 14.3-32 32-32s32 14.3 32 32\' stroke=\'white\' stroke-width=\'1.5\' stroke-linecap=\'round\'/></svg>'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="sec" id="about">
+    <div class="secw">
+      <div class="sech rev">
+        <h2 class="sec-ttl">About <span class="g">Me</span></h2>
+        <p class="sec-sub">A passionate Cloud &amp; DevOps engineer focused on building scalable systems, automating workflows, and delivering efficient, production-ready solutions.</p>
+      </div>
+      <div class="about-grid">
+        <div class="rev">
+          <div class="about-text">
+            <h3>Building My Path in Tech 🚀</h3>
+            <div class="about-edu">
+              <span class="about-edu-ico">🎓</span>
+              <span class="about-edu-txt">Lovely Professional University · 2027</span>
+            </div>
+            <p>I'm Sachin Tiwari, a B.Tech student. I am passionate about cloud computing and DevOps,
+              with a strong interest in building scalable and efficient systems.</p>
+            <p>I enjoy learning new technologies and continuously improving my skills to grow as a developer and
+              engineer.</p>
+            <div class="pills">
+              <span class="pill">🧩 Problem-Solving</span>
+              <span class="pill">📊 Project Management</span>
+              <span class="pill">🌀 Adaptability</span>
+              <span class="pill">🤝 Leadership</span>
+            </div>
+          </div>
+        </div>
+        <div class="acards">
+          <div class="acard rev d1">
+            <div class="acard-ico" style="background:rgba(79,142,255,.12);border:1px solid rgba(79,142,255,.2)">☁️</div>
+            <div>
+              <h4>Cloud Engineering</h4>
+              <p>I work with AWS services like EC2, S3, and IAM to build scalable and reliable cloud-based applications. I focus on designing efficient architectures and continuously improving my cloud skills.</p>
+            </div>
+          </div>
+          <div class="acard rev d2">
+            <div class="acard-ico" style="background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.2)">⚙️</div>
+            <div>
+              <h4>DevOps & Automation</h4>
+              <p>I use Docker and Kubernetes to containerize and deploy applications. I also explore CI/CD workflows using GitHub Actions to automate build and deployment processes.</p>
+            </div>
+          </div>
+          <div class="acard rev d3">
+            <div class="acard-ico" style="background:rgba(6,214,160,.12);border:1px solid rgba(6,214,160,.2)">📊</div>
+            <div>
+              <h4>Monitoring & Performance</h4>
+              <p>I have a growing understanding of monitoring tools like Prometheus and Grafana, helping me analyze system performance, logs, and ensure application reliability.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="sec" id="skills">
+    <div class="secw">
+      <div class="sech rev">
+        <h2 class="sec-ttl">Skills &amp; <span class="g">Tools</span></h2>
+        <p class="sec-sub">Technologies I use daily to build, automate, and scale production systems.</p>
+      </div>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </section>
+  <div class="divider"></div>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="sec" id="projects">
+    <div class="secw">
+      <div class="sech rev">
+        <h2 class="sec-ttl">Featured <span class="g">Projects</span></h2>
+      </div>
+      <div class="proj-grid" id="projGrid"></div>
+    </div>
+  </section>
+  <div class="divider"></div>
+
+  <!-- ===== CERTIFICATES ===== -->
+  <section class="sec" id="certificates">
+    <div class="secw">
+      <div class="sech rev">
+        <h2 class="sec-ttl">Certifi<span class="g">cations</span></h2>
+      </div>
+
+      <div class="certs-grid" id="certsGrid"></div>
+    </div>
+  </section>
+  <div class="divider"></div>
+
+  <!-- ===== RESUME ===== -->
+  <section class="sec" id="resume">
+    <div class="secw">
+      <div class="sech rev">
+        <h2 class="sec-ttl">My <span class="g">Resume</span></h2>
+      </div>
+      <div class="res-grid">
+        <div class="res-prev rev" id="resPrev" style="padding:0; overflow:hidden;">
+          <iframe src="assets/resume/Sachin-cv (1).pdf#toolbar=0" title="Resume Preview" style="width:100%; height:100%; border:none; border-radius:12px; background:var(--card-bg);"></iframe>
+        </div>
+        <div class="rev d1">
+          <div class="res-info">
+            <h3>Download My Resume</h3>
+            <div class="res-btns">
+              <a href="assets/resume/Sachin-cv (1).pdf" target="_blank" class="btn btn-p btn-fw" style="display:inline-flex; align-items:center; justify-content:center; text-decoration:none;">👁 View Resume</a>
+              <a href="assets/resume/Sachin-cv (1).pdf" download="Sachin_Tiwari_Resume.pdf" class="btn btn-s btn-fw" style="display:inline-flex; align-items:center; justify-content:center; text-decoration:none;">⬇ Download Resume</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="sec" id="contact">
+    <div class="secw">
+      <div class="sech rev">
+        <div class="sec-tag">Get In Touch</div>
+        <h2 class="sec-ttl">Let's <span class="g">Connect</span></h2>
+        <p class="sec-sub">Have a project in mind or want to collaborate? My inbox is always open.</p>
+      </div>
+      <div class="con-grid">
+        <div class="rev">
+          <div class="con-info">
+            <h3>Say Hello 👋</h3>
+            <p>Whether it's a full-time role, freelance project, or just a good technical chat —
+              reach out and I'll respond within 24 hours.</p>
+          </div>
+          <div class="soc-list">
+            <a href="https://linkedin.com" target="_blank" class="soc-link">
+              <div class="soc-ico"
+                style="background:rgba(10,102,194,.15);color:#0a66c2;font-weight:700;font-size:15px;font-family:var(--ff)">
+                in</div>
+              <div><span>LinkedIn</span><small>Connect professionally</small></div>
+            </a>
+            <a href="https://github.com" target="_blank" class="soc-link">
+              <div class="soc-ico" style="background:rgba(255,255,255,.08);font-size:22px">⌨</div>
+              <div><span>GitHub</span><small>See my open-source work</small></div>
+            </a>
+            <a href="mailto:hello@yourname.com" class="soc-link">
+              <div class="soc-ico" style="background:rgba(79,142,255,.12);font-size:20px">✉</div>
+              <div><span>Email</span><small>hello@yourname.com</small></div>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="soc-link">
+              <div class="soc-ico"
+                style="background:rgba(29,161,242,.12);color:#1da1f2;font-size:16px;font-weight:700;font-family:var(--ff)">
+                𝕏</div>
+              <div><span>Twitter / X</span><small>Follow for tech content</small></div>
+            </a>
+          </div>
+        </div>
+        <div class="rev d1">
+          <form class="con-form" onsubmit="sendMsg(event)">
+            <div class="f2">
+              <div class="fld">
+                <label>Full Name</label>
+                <input type="text" required>
+              </div>
+              <div class="fld">
+                <label>Email Address</label>
+                <input type="email" required>
+              </div>
+            </div>
+            <div class="fld">
+              <label>Subject</label>
+              <input type="text" placeholder="What's this about?">
+            </div>
+            <div class="fld">
+              <label>Message</label>
+              <textarea rows="6" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-p btn-fw">🚀 Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>Designed &amp; built with ❤️ by <span class="ac" id="fName">Your Name</span> &nbsp;·&nbsp; <span id="yr"></span>
+    </p>
+    <p style="margin-top:8px;font-size:12px;color:var(--txt3)">Three.js · CSS Glassmorphism · Dark/Light Mode · Fully
+      Responsive</p>
+  </footer>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- JavaScript files — edit each separately -->
+  <script src="js/data.js"></script>
+  <script src="js/threejs-bg.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/upload.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/init.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+/* ============================================================
+   css/about.css
+   About section — two column layout with info cards
+============================================================ */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.about-text h3 {
+  font-family: var(--ff);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.about-edu {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(79, 142, 255, 0.10), rgba(168, 85, 247, 0.06));
+  border: 1px solid var(--bdr);
+  color: var(--txt2);
+  margin: 2px 0 18px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.about-edu-ico { font-size: 16px; line-height: 1; }
+.about-edu-txt { font-size: 13px; letter-spacing: .02em; }
+.about-text p {
+  color: var(--txt2);
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+/* Skill pills row */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+.pill {
+  padding: 7px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  background: rgba(79, 142, 255, 0.09);
+  border: 1px solid rgba(79, 142, 255, 0.22);
+  color: var(--a);
+  transition: all .2s;
+}
+.pill:hover {
+  background: rgba(79, 142, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* About cards stack */
+.acards { display: flex; flex-direction: column; gap: 18px; }
+
+.acard {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px;
+  border-radius: var(--rad2);
+  background: var(--surf);
+  border: 1px solid var(--bdr);
+  transition: all var(--tr);
+}
+.acard:hover {
+  background: var(--surf2);
+  border-color: var(--bdr2);
+  transform: translateX(8px);
+}
+
+.acard-ico {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.acard h4 {
+  font-family: var(--ff);
+  font-size: 15.5px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.acard p {
+  font-size: 13.5px;
+  color: var(--txt2);
+  line-height: 1.65;
+}

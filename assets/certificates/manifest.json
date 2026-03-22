@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Full Stack Development In React and Node",
+    "issuer": "LPU",
+    "year": "2024",
+    "ico": "📜",
+    "url": "assets/certificates/fullstack-react-node.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "Social Networks",
+    "issuer": "NPTEL",
+    "year": "2023",
+    "ico": "📜",
+    "url": "assets/certificates/social-networks.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "Bits and Bytes of Computer Network",
+    "issuer": "Google",
+    "year": "2023",
+    "ico": "📜",
+    "url": "assets/certificates/bits-and-bytes-certificate.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "bits and bits certificate",
+    "issuer": "Certificate",
+    "year": "2024",
+    "ico": "📄",
+    "url": "assets/certificates/bits-and-bits-certificate.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "ChatGPT-4 Prompt Engineering",
+    "issuer": "Certificate",
+    "year": "2025",
+    "ico": "📄",
+    "url": "assets/certificates/chatgpt-4-prompt-engineering.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "Computer Communication",
+    "issuer": "Certificate",
+    "year": "2024",
+    "ico": "📄",
+    "url": "assets/certificates/computer-communication.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "full stack development in react & node",
+    "issuer": "Certificate",
+    "year": "2026",
+    "ico": "📄",
+    "url": "assets/certificates/full-stack-development-react-node.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "Fundamentals of Network Communication",
+    "issuer": "Certificate",
+    "year": "2024",
+    "ico": "📄",
+    "url": "assets/certificates/fundamentals-of-network-communication.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "Introduction to Hardware and Operating Systems",
+    "issuer": "Certificate",
+    "year": "2024",
+    "ico": "📄",
+    "url": "assets/certificates/introduction-to-hardware-and-operating-systems.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "Packet Switching Networks and Algorithms",
+    "issuer": "Certificate",
+    "year": "2024",
+    "ico": "📄",
+    "url": "assets/certificates/packet-switching-networks-and-algorithms.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "Peer-to-Peer Protocols and Local Area Networks",
+    "issuer": "Certificate",
+    "year": "2024",
+    "ico": "📄",
+    "url": "assets/certificates/peer-to-peer-protocols-and-local-area-networks.pdf",
+    "mime": "application/pdf"
+  },
+  {
+    "title": "TCPIP and Advanced Topics",
+    "issuer": "Certificate",
+    "year": "2024",
+    "ico": "📄",
+    "url": "assets/certificates/tcpip-and-advanced-topics.pdf",
+    "mime": "application/pdf"
+  }
+]

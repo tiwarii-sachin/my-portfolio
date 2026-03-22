@@ -1,0 +1,253 @@
+/* ============================================================
+   css/hero.css
+   Hero section — name, role, profile photo ring
+============================================================ */
+
+#hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 6% 80px;
+}
+
+.herow {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ── Left column ── */
+.hero-l { animation: fup .9s ease both; }
+
+/* Availability badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(79, 142, 255, 0.10);
+  border: 1px solid rgba(79, 142, 255, 0.30);
+  border-radius: 50px;
+  padding: 6px 18px;
+  font-size: 12px;
+  color: var(--a);
+  margin-bottom: 28px;
+  letter-spacing: .06em;
+  font-weight: 500;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--a3);
+  animation: bdot 1.8s ease infinite;
+}
+
+@keyframes bdot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .3; transform: scale(.8); }
+}
+
+/* Name */
+.hero-name {
+  font-family: var(--ff);
+  font-size: clamp(42px, 5.5vw, 76px);
+  font-weight: 800;
+  line-height: 1.02;
+  margin-bottom: 10px;
+}
+.hero-name .g {
+  background: linear-gradient(135deg, var(--a) 0%, var(--a2) 50%, var(--a3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Typed role */
+.hero-role {
+  font-family: var(--ff);
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: var(--txt2);
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+.cursor {
+  animation: cur 1s step-end infinite;
+  color: var(--a);
+}
+@keyframes cur {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Description */
+.hero-desc {
+  font-size: 15.5px;
+  color: var(--txt2);
+  max-width: 500px;
+  line-height: 1.82;
+  margin-bottom: 40px;
+}
+
+/* CTA buttons row */
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+/* Stats row */
+.hero-stats { display: flex; gap: 36px; }
+
+.stat .num {
+  font-family: var(--ff);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--a), var(--a2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat .lbl {
+  font-size: 11px;
+  color: var(--txt3);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── Right column — profile photo ring ── */
+.hero-r {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  animation: fup .9s .18s ease both;
+  position: relative;
+}
+
+/* Spotlight behind the ring */
+.hero-r::before {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  background:
+    radial-gradient(circle at 35% 35%, rgba(79, 142, 255, 0.20) 0%, transparent 55%),
+    radial-gradient(circle at 65% 55%, rgba(168, 85, 247, 0.16) 0%, transparent 58%),
+    radial-gradient(circle at 50% 80%, rgba(6, 214, 160, 0.10) 0%, transparent 60%);
+  filter: blur(26px);
+  opacity: .95;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.pro-outer {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  transform: translateZ(0);
+}
+
+/* Glow orb behind the ring */
+.pro-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--glow) 0%, transparent 68%);
+  z-index: -1;
+  animation: pglow 3s ease infinite;
+}
+@keyframes pglow {
+  0%, 100% { opacity: .5; transform: scale(1); }
+  50%       { opacity: .8; transform: scale(1.06); }
+}
+
+/* Spinning rings */
+.ring1 {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--a);
+  opacity: .45;
+  animation: spin 7s linear infinite;
+}
+.ring2 {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--a2);
+  opacity: .3;
+  animation: spin 10s linear infinite reverse;
+}
+.ring-conic {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    conic-gradient(from 0deg, var(--a), var(--a2), var(--a3), var(--a)) border-box;
+  animation: spin 3.5s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Photo circle */
+.pro-circle {
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow:
+    0 0 80px var(--glow),
+    0 0 160px var(--glow2),
+    inset 0 0 40px rgba(0,0,0,.6);
+}
+.pro-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Placeholder before photo is uploaded */
+.pro-ph { text-align: center; color: var(--txt3); padding: 20px; }
+.pro-ph svg { width: 72px; height: 72px; opacity: .4; margin-bottom: 12px; }
+.pro-ph p   { font-size: 13px; line-height: 1.5; }
+
+/* Upload button on ring */
+.upload-badge {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  z-index: 5;
+  background: linear-gradient(135deg, var(--a), var(--a2));
+  color: #fff;
+  border: none;
+  border-radius: var(--rad);
+  padding: 9px 16px;
+  font-size: 12px;
+  font-family: var(--ff);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 20px var(--glow);
+  transition: all .2s;
+  cursor: pointer;
+}
+.upload-badge:hover { transform: scale(1.06); }

@@ -1,0 +1,68 @@
+/* ============================================================
+   css/loader.css
+   Full-screen loading animation shown on page load
+============================================================ */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  transition: opacity .7s, visibility .7s;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Animated logo text */
+.l-logo {
+  font-family: var(--ff);
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--a), var(--a2), var(--a3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: lpulse 1.5s ease infinite;
+}
+
+@keyframes lpulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* Progress bar */
+.l-bar-bg {
+  width: 200px;
+  height: 2px;
+  background: var(--surf3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.l-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--a), var(--a2));
+  border-radius: 2px;
+  animation: lbar 1.3s ease forwards;
+}
+
+@keyframes lbar {
+  to { width: 100%; }
+}
+
+/* Subtitle text */
+.l-sub {
+  font-size: 12px;
+  color: var(--txt3);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}

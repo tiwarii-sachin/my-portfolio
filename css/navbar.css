@@ -1,0 +1,156 @@
+/* ============================================================
+   css/navbar.css
+   Sticky navbar + mobile hamburger menu
+============================================================ */
+
+/* ── Three.js canvas background ── */
+#bgc {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Mobile full-screen overlay menu ── */
+#mobnav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(5, 8, 20, 0.97);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+#mobnav.open { display: flex; }
+
+#mobnav a {
+  font-family: var(--ff);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--txt);
+  transition: color .2s;
+}
+#mobnav a:hover { color: var(--a); }
+
+.mob-x {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: var(--txt2);
+  cursor: pointer;
+}
+
+/* ── Navbar ── */
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 0 6%;
+  transition: all var(--tr);
+}
+
+/* Solid on scroll */
+#nav.solid {
+  background: rgba(5, 8, 20, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--bdr);
+}
+[data-theme="light"] #nav.solid {
+  background: rgba(240, 244, 255, 0.90);
+}
+
+.navw {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+/* Logo */
+.nav-logo {
+  font-family: var(--ff);
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--a), var(--a2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Nav links */
+.nav-ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-ul a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--txt2);
+  letter-spacing: .06em;
+  transition: color .2s;
+  position: relative;
+  padding-bottom: 3px;
+}
+.nav-ul a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--a), var(--a2));
+  transition: width .3s;
+}
+.nav-ul a:hover            { color: var(--txt); }
+.nav-ul a:hover::after     { width: 100%; }
+
+/* Right side buttons */
+.nav-r { display: flex; gap: 12px; align-items: center; }
+
+.ico-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--bdr2);
+  background: var(--surf);
+  color: var(--txt);
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+}
+.ico-btn:hover {
+  background: var(--surf2);
+  border-color: var(--a);
+  box-shadow: 0 0 18px var(--glow);
+}
+
+/* Hamburger */
+.ham {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  background: none;
+  border: none;
+}
+.ham span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--txt);
+  border-radius: 2px;
+}

@@ -1,0 +1,90 @@
+/* ============================================================
+   css/variables.css
+   EDIT THIS FILE to change colors, fonts, spacing
+============================================================ */
+
+:root {
+  /* ── Backgrounds ── */
+  --bg:   #050814;
+  --bg2:  #080d1e;
+  --bg3:  #0c1228;
+
+  /* ── Surfaces (glass cards) ── */
+  --surf:  rgba(255, 255, 255, 0.04);
+  --surf2: rgba(255, 255, 255, 0.08);
+  --surf3: rgba(255, 255, 255, 0.12);
+
+  /* ── Borders ── */
+  --bdr:  rgba(100, 140, 255, 0.14);
+  --bdr2: rgba(100, 140, 255, 0.28);
+  --bdr3: rgba(100, 140, 255, 0.50);
+
+  /* ── Text ── */
+  --txt:  #e8eeff;
+  --txt2: #8a9bc4;
+  --txt3: #3e4e78;
+
+  /* ── Accent Colors ── */
+  --a:  #4f8eff;   /* Blue  — primary accent  */
+  --a2: #a855f7;   /* Purple — secondary accent */
+  --a3: #06d6a0;   /* Teal  — success / highlight */
+
+  /* ── Glow Effects ── */
+  --glow:  rgba(79,  142, 255, 0.35);
+  --glow2: rgba(168,  85, 247, 0.35);
+  --glow3: rgba(  6, 214, 160, 0.25);
+
+  /* ── Fonts ── */
+  --ff: 'Syne', sans-serif;      /* Headings */
+  --fb: 'DM Sans', sans-serif;   /* Body     */
+
+  /* ── Border Radius ── */
+  --rad:  12px;
+  --rad2: 20px;
+
+  /* ── Misc ── */
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --tr: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Signature background layers ── */
+  --aur1: rgba(79, 142, 255, 0.22);
+  --aur2: rgba(168, 85, 247, 0.18);
+  --aur3: rgba(6, 214, 160, 0.14);
+  --noiseOpacity: 0.06;
+  --blurStrong: 70px;
+  --ringGlow: 0 0 90px rgba(79, 142, 255, 0.22);
+}
+
+/* ── LIGHT MODE — edit colors below to customise ── */
+[data-theme="light"] {
+  --bg:   #f0f4ff;
+  --bg2:  #e6ecff;
+  --bg3:  #d8e2ff;
+
+  --surf:  rgba(0, 0, 0, 0.03);
+  --surf2: rgba(0, 0, 0, 0.06);
+  --surf3: rgba(0, 0, 0, 0.10);
+
+  --bdr:  rgba(50, 100, 255, 0.12);
+  --bdr2: rgba(50, 100, 255, 0.25);
+  --bdr3: rgba(50, 100, 255, 0.45);
+
+  --txt:  #060e24;
+  --txt2: #2e3e6a;
+  --txt3: #8090c0;
+
+  --a:  #1d4ed8;
+  --a2: #6d28d9;
+  --a3: #047857;
+
+  --glow:  rgba(29,  78, 216, 0.20);
+  --glow2: rgba(109, 40, 217, 0.20);
+  --glow3: rgba(  4, 120,  87, 0.15);
+
+  --aur1: rgba(29, 78, 216, 0.12);
+  --aur2: rgba(109, 40, 217, 0.10);
+  --aur3: rgba(4, 120, 87, 0.08);
+  --noiseOpacity: 0.04;
+  --blurStrong: 60px;
+  --ringGlow: 0 0 80px rgba(29, 78, 216, 0.12);
+}

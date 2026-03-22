@@ -1,0 +1,117 @@
+/* ============================================================
+   css/projects.css
+   Projects grid cards with 3D hover lift effect
+============================================================ */
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 26px;
+}
+
+.proj-card {
+  border-radius: var(--rad2);
+  background: var(--surf);
+  border: 1px solid var(--bdr);
+  overflow: hidden;
+  transition: all .38s;
+  position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Subtle gradient overlay on hover */
+.proj-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 240px at 0% 0%, rgba(79,142,255,.10), transparent 60%),
+    radial-gradient(520px 240px at 100% 10%, rgba(168,85,247,.08), transparent 62%),
+    linear-gradient(135deg, rgba(79,142,255,.03), rgba(168,85,247,.03));
+  opacity: 0;
+  transition: opacity .38s;
+  pointer-events: none;
+}
+.proj-card:hover::after { opacity: 1; }
+
+.proj-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--a);
+  box-shadow: var(--shadow), var(--ringGlow);
+}
+
+/* Card top area */
+.proj-top {
+  padding: 30px 26px 18px;
+  position: relative;
+}
+
+/* Large faded number watermark */
+.proj-num {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  font-family: var(--ff);
+  font-size: 52px;
+  font-weight: 800;
+  color: var(--surf2);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Icon box */
+.proj-ico {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, rgba(79,142,255,.22), rgba(168,85,247,.18));
+  border: 1px solid var(--bdr2);
+}
+
+.proj-card h3 {
+  font-family: var(--ff);
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.proj-top p {
+  color: var(--txt2);
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+
+/* Card bottom area */
+.proj-bot { padding: 0 26px 26px; }
+
+/* Tech stack tags */
+.tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 22px;
+}
+.tech-tag {
+  padding: 5px 13px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(6, 214, 160, 0.09);
+  border: 1px solid rgba(6, 214, 160, 0.22);
+  color: var(--a3);
+}
+
+/* Button row */
+.proj-btns { display: flex; gap: 10px; }
+.proj-btns .btn {
+  flex: 1;
+  justify-content: center;
+  font-size: 12.5px;
+  padding: 10px 16px;
+}

@@ -1,0 +1,29 @@
+/* ============================================================
+   css/animations.css
+   Shared keyframes + scroll reveal classes
+============================================================ */
+
+/* ── Fade up (hero entry animation) ── */
+@keyframes fup {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Scroll-reveal base state ── */
+.rev {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .75s ease, transform .75s ease;
+}
+
+/* Visible state — added by JS when element enters viewport */
+.rev.on {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered delay helpers */
+.d1 { transition-delay: .1s; }
+.d2 { transition-delay: .2s; }
+.d3 { transition-delay: .3s; }
+.d4 { transition-delay: .4s; }

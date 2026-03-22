@@ -1,0 +1,233 @@
+/* ============================================================
+   css/base.css
+   Global reset, scrollbar, shared section classes, buttons
+============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--txt);
+  font-family: var(--fb);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  transition: background var(--tr), color var(--tr);
+  position: relative;
+}
+
+img   { display: block; max-width: 100%; }
+a     { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+input, textarea { font-family: inherit; }
+
+/* ── Signature aurora + noise layers (behind content, above canvas) ── */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Aurora blobs */
+body::before {
+  z-index: 0;
+  background:
+    radial-gradient(800px 520px at 18% 18%, var(--aur2) 0%, transparent 60%),
+    radial-gradient(820px 540px at 82% 22%, var(--aur1) 0%, transparent 62%),
+    radial-gradient(920px 620px at 52% 92%, var(--aur3) 0%, transparent 58%);
+  filter: blur(var(--blurStrong));
+  opacity: .9;
+  transform: translateZ(0);
+  animation: aur 14s ease-in-out infinite alternate;
+}
+
+/* Noise texture */
+body::after {
+  z-index: 0;
+  opacity: var(--noiseOpacity);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+@keyframes aur {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(0, -14px, 0) scale(1.05); }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: var(--bg); }
+::-webkit-scrollbar-thumb  {
+  background: linear-gradient(180deg, var(--a), var(--a2));
+  border-radius: 10px;
+}
+
+/* ── Divider line between sections ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bdr2), transparent);
+  margin: 0 6%;
+}
+
+/* ── Section wrapper ── */
+.sec  { position: relative; z-index: 1; }
+.secw { max-width: 1200px; margin: 0 auto; padding: 110px 6%; }
+
+/* ── Section header block ── */
+.sech { text-align: center; margin-bottom: 70px; }
+
+.sec-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--a);
+  background: rgba(79, 142, 255, 0.10);
+  border: 1px solid rgba(79, 142, 255, 0.20);
+  border-radius: 50px;
+  padding: 5px 16px;
+  margin-bottom: 16px;
+}
+
+.sec-ttl {
+  font-family: var(--ff);
+  font-size: clamp(30px, 4vw, 50px);
+  font-weight: 800;
+  line-height: 1.08;
+  margin-bottom: 16px;
+}
+
+.sec-ttl .g {
+  background: linear-gradient(135deg, var(--a), var(--a2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sec-sub {
+  color: var(--txt2);
+  font-size: 15px;
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 26px;
+  border-radius: var(--rad);
+  border: none;
+  font-family: var(--ff);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  transition: all .25s;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Shine shimmer overlay on hover */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.12), transparent);
+  opacity: 0;
+  transition: opacity .25s;
+}
+.btn:hover::after { opacity: 1; }
+
+/* Primary — gradient fill */
+.btn-p {
+  background: linear-gradient(135deg, var(--a), var(--a2));
+  color: #fff;
+  box-shadow: 0 4px 28px var(--glow);
+}
+.btn-p:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px var(--glow);
+}
+
+/* Secondary — glass outline */
+.btn-s {
+  background: var(--surf);
+  border: 1px solid var(--bdr2);
+  color: var(--txt);
+}
+.btn-s:hover {
+  background: var(--surf2);
+  border-color: var(--a);
+  color: var(--a);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px var(--glow);
+}
+
+/* Ghost — transparent */
+.btn-g {
+  background: transparent;
+  border: 1px solid var(--bdr);
+  color: var(--txt2);
+}
+.btn-g:hover {
+  background: var(--surf);
+  color: var(--txt);
+  transform: translateY(-2px);
+}
+
+/* Modifiers */
+.btn-sm { padding: 9px 18px; font-size: 12px; }
+.btn-fw { width: 100%; justify-content: center; }
+
+/* ============================================================
+   TOAST NOTIFICATION
+============================================================ */
+
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  background: linear-gradient(135deg, var(--a), var(--a2));
+  color: #fff;
+  padding: 13px 22px;
+  border-radius: var(--rad);
+  font-family: var(--ff);
+  font-size: 13.5px;
+  font-weight: 600;
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all .4s cubic-bezier(.4, 0, .2, 1);
+  pointer-events: none;
+  max-width: 320px;
+  box-shadow: 0 8px 32px var(--glow);
+}
+.toast.show {
+  transform: none;
+  opacity: 1;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
