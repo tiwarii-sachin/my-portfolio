@@ -1,118 +1,288 @@
-# 🚀 Dev Portfolio — File Guide
+# Personal Portfolio — Vercel & AWS Cloud Deployment
 
-Open `index.html` in any browser. No build step needed...
+A responsive personal portfolio website showcasing my skills, projects, certifications, and professional profile.
 
----
+The portfolio is deployed using **two deployment approaches**:
 
-## 📁 Folder Structure
+* **Vercel** — primary frontend hosting and continuous deployment
+* **AWS EC2 + Terraform + Nginx** — cloud infrastructure and server-based deployment
 
+## 🚀 Project Overview
+
+This project demonstrates how the same static portfolio website can be deployed using both a managed cloud hosting platform and a self-managed cloud server.
+
+### Deployment Architecture
+
+```text
+                         GitHub Repository
+                                │
+                    ┌───────────┴───────────┐
+                    │                       │
+                    ▼                       ▼
+                 Vercel                 Terraform
+                    │                       │
+                    ▼                       ▼
+            Managed Hosting             AWS EC2
+                                            │
+                                         Ubuntu
+                                            │
+                                         Nginx
+                                            │
+                                            ▼
+                                   Portfolio Website
 ```
-portfolio/
+
+## 🌐 Deployment 1 — Vercel
+
+The portfolio is deployed on **Vercel** for easy and automated hosting.
+
+### Vercel Deployment Flow
+
+```text
+GitHub
+   │
+   ▼
+Vercel
+   │
+   ▼
+Live Portfolio
+```
+
+Whenever changes are pushed to the GitHub repository, Vercel can automatically build and deploy the updated website.
+
+### Benefits
+
+* Fast deployment
+* Automatic deployments from GitHub
+* CDN-based delivery
+* HTTPS support
+* Simple deployment workflow
+
+**Live Website:**
+Add your Vercel URL here.
+
+```text
+https://your-vercel-domain.vercel.app
+```
+
+## ☁️ Deployment 2 — AWS EC2 Using Terraform
+
+The portfolio was also deployed on an **AWS EC2 Ubuntu server** using **Terraform**.
+
+Terraform was used as Infrastructure as Code (IaC) to provision the required AWS infrastructure.
+
+### AWS Deployment Flow
+
+```text
+GitHub
+   │
+   ▼
+Terraform
+   │
+   ├── EC2 Instance
+   │
+   └── Security Group
+          │
+          ▼
+     Ubuntu Server
+          │
+          ▼
+        Nginx
+          │
+          ▼
+  Portfolio Website
+```
+
+### AWS Infrastructure
+
+Terraform provisions:
+
+* AWS EC2 instance
+* Ubuntu Server
+* Security Group
+* SSH access
+* HTTP access on port `80`
+
+### AWS Security Group
+
+| Protocol | Port | Purpose |
+| -------- | ---: | ------- |
+| TCP      |   22 | SSH     |
+| TCP      |   80 | HTTP    |
+
+### Terraform Structure
+
+```text
+terraform/
+├── main.tf
+├── provider.tf
+├── variables.tf
+├── outputs.tf
+└── .terraform.lock.hcl
+```
+
+### Deployment Commands
+
+```bash
+cd terraform
+
+terraform init
+terraform validate
+terraform plan
+terraform apply
+```
+
+Terraform outputs the EC2 public IP and website URL after successful deployment.
+
+## 🔍 AWS Deployment Verification
+
+The EC2 deployment was verified using Nginx.
+
+### Nginx Status
+
+```bash
+sudo systemctl status nginx
+```
+
+Result:
+
+```text
+Active: active (running)
+```
+
+### HTTP Verification
+
+```bash
+curl -I http://localhost
+```
+
+Result:
+
+```text
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Content-Type: text/html
+```
+
+This confirmed that the portfolio website was successfully served by Nginx.
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+
+### Cloud & DevOps
+
+* AWS EC2
+* Terraform
+* Ubuntu Linux
+* Nginx
+* Git
+* GitHub
+* Vercel
+
+## 📁 Project Structure
+
+```text
+my-portfolio/
 │
-├── index.html              ← Main HTML (structure only — do not edit often)
-│
+├── assets/
 ├── css/
-│   ├── variables.css       ← 🎨 COLORS, FONTS, SPACING — edit here first
-│   ├── base.css            ← Reset, global styles, buttons, toast
-│   ├── loader.css          ← Loading screen animation
-│   ├── navbar.css          ← Sticky nav + mobile hamburger
-│   ├── hero.css            ← Hero section + profile photo ring
-│   ├── about.css           ← About section layout + cards
-│   ├── skills.css          ← Skills grid + progress bars
-│   ├── projects.css        ← Project cards + tech tags
-│   ├── certificates.css    ← Certificate upload zone + cards
-│   ├── resume.css          ← Resume preview + buttons
-│   ├── contact.css         ← Contact form + social links
-│   ├── footer.css          ← Footer styles
-│   ├── animations.css      ← Scroll-reveal + keyframes
-│   └── responsive.css      ← Mobile / tablet media queries
-│
 ├── js/
-│   ├── data.js             ← ✏️  YOUR CONTENT — name, skills, projects, certs
-│   ├── threejs-bg.js       ← Three.js particle + shape background
-│   ├── render.js           ← Builds skills/projects/cert DOM from data.js
-│   ├── upload.js           ← File upload handlers (photo, resume, certs)
-│   ├── ui.js               ← Theme, navbar, scroll-reveal, typed text, toast
-│   └── init.js             ← Bootstraps everything on page load
+├── terraform/
+│   ├── main.tf
+│   ├── provider.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   └── .terraform.lock.hcl
 │
-└── assets/                 ← Put your images / PDF here (optional)
-    └── (your files here)
+├── index.html
+├── README.md
+└── .gitignore
 ```
+
+## 📸 Deployment Evidence
+
+The project includes evidence of both deployment approaches.
+
+### Vercel
+
+* Vercel deployment
+* Live portfolio
+* GitHub integration
+
+### AWS EC2
+
+* Terraform plan
+* Terraform apply
+* EC2 instance
+* SSH connection
+* Nginx status
+* HTTP `200 OK`
+* Live portfolio on EC2
+
+## 🔐 Security
+
+Sensitive files are excluded from version control:
+
+```text
+terraform.tfvars
+terraform.tfstate
+terraform.tfstate.backup
+*.pem
+.terraform/
+```
+
+Private SSH keys and Terraform state files should never be committed to a public repository.
+
+## 📊 Project Outcome
+
+Successfully deployed the personal portfolio using **two cloud deployment approaches**:
+
+### Vercel
+
+A managed hosting platform providing simple GitHub-based deployment.
+
+### AWS EC2
+
+A self-managed cloud deployment where infrastructure was provisioned using Terraform and the website was served through Nginx on Ubuntu.
+
+This project demonstrates practical experience with:
+
+* Cloud deployment
+* AWS EC2
+* Infrastructure as Code
+* Terraform
+* Linux
+* Nginx
+* Git & GitHub
+* Vercel
+
+## 🔮 Future Enhancements
+
+* HTTPS/SSL configuration on AWS
+* Custom domain with Route 53
+* GitHub Actions CI/CD
+* AWS CloudWatch monitoring
+* Automated Terraform deployment
+* High-availability infrastructure
+* AWS load balancing
+
+## 👨‍💻 Author
+
+**Sachin Tiwari**
+
+Computer Science & Engineering Student
+Lovely Professional University
+
+### Profiles
+
+* GitHub: https://github.com/tiwarii-sachin
+* LinkedIn: https://linkedin.com/in/sachin-tiwari-2
 
 ---
 
-## ✏️ How to Personalise
-
-### 1. Change your name, role, links → `js/data.js`
-Edit the `INFO` object at the top:
-```js
-const INFO = {
-  name:    "Arjun Sharma",
-  role:    "Cloud & DevOps Engineer",
-  email:   "arjun@example.com",
-  linkedin:"https://linkedin.com/in/arjunsharma",
-  github:  "https://github.com/arjunsharma",
-  twitter: "https://twitter.com/arjunsharma",
-};
-```
-
-### 2. Add / remove Skills → `js/data.js` → `SKILLS` array
-```js
-{ ico: "🐳", name: "Docker", lv: "Expert", pct: 95 },
-```
-- `ico`  — any emoji
-- `lv`   — Expert / Advanced / Intermediate / Beginner
-- `pct`  — 0 to 100
-
-### 3. Add / remove Projects → `js/data.js` → `PROJECTS` array
-```js
-{
-  ico:   "☁️",
-  title: "My Cool Project",
-  desc:  "Short description...",
-  stack: ["React", "Docker", "AWS"],
-  demo:  "https://myproject.com",
-  code:  "https://github.com/me/project",
-},
-```
-
-### 4. Add Certifications → `js/data.js` → `DEF_CERTS` array
-```js
-{ title: "AWS Solutions Architect", issuer: "Amazon", year: "2024", ico: "🔶", url: null },
-```
-Set `url` to a direct PDF/image URL to enable real View/Download buttons.
-
-### 5. Change Colors → `css/variables.css`
-```css
---a:  #4f8eff;   /* primary blue accent  */
---a2: #a855f7;   /* purple accent        */
---a3: #06d6a0;   /* teal highlight       */
-```
-
-### 6. Upload your photo
-Click the **📷 Upload Photo** button on the profile ring in the browser.
-
-### 7. Upload your Resume PDF
-Go to the **Resume** section and click **⬆ Upload Resume PDF**.
-
-### 8. Upload Certificates
-Go to the **Certifications** section and drag & drop or click to upload PDF/image files.
-
----
-
-## 🌐 How to Run
-
-Just open `index.html` in Chrome, Firefox, or Edge.
-No server needed. All assets load from CDN (requires internet for fonts + Three.js).
-
----
-
-## 🛠 Tech Used
-
-| Tech | Purpose |
-|---|---|
-| HTML5 | Structure |
-| CSS3 | Styling, glassmorphism, animations |
-| Vanilla JavaScript | Interactivity, DOM rendering |
-| Three.js (r128) | 3D particle background |
-| Google Fonts | Syne + DM Sans |
+⭐ Built as a practical Cloud & DevOps project using **Vercel, AWS EC2, Terraform, Ubuntu, and Nginx**.
