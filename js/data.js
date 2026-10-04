@@ -85,6 +85,9 @@ const PROJECTS = [
 
 /* ── Default Certificates ── */
 const DEF_CERTS = [
+  { title: "Cloud Computing Fundamentals", issuer: "IBM", year: "2026", ico: "☁️", url: "assets/certificates/Cloud Computing Fundamentals - IBM.pdf" },
+  { title: "Oracle Certified Foundations Associate", issuer: "Oracle", year: "2026", ico: "🔶", url: "assets/certificates/Oracle Certified Foundations Associate.pdf" },
+
   { title: "ChatGPT-4 Prompt Engineering", issuer: "Certification", year: "2024", ico: "🤖", url: "assets/certificates/ChatGPT-4 Prompt Engineering ChatGPT, Generative AI & LLM.pdf" },
   { title: "Computer Communication", issuer: "Certification", year: "2024", ico: "💻", url: "assets/certificates/Computer Communication.pdf" },
   { title: "Fundamentals of Network Comm.", issuer: "Certification", year: "2024", ico: "🌐", url: "assets/certificates/Fundamentals of Network Communication.pdf" },
@@ -95,3 +98,4 @@ const DEF_CERTS = [
   { title: "Bits and Bytes of Networking", issuer: "Google", year: "2024", ico: "🔌", url: "assets/certificates/bits and bits certificate.pdf" },
   { title: "Full Stack Development in React & Node", issuer: "Certification", year: "2024", ico: "⚛️", url: "assets/certificates/full stack devlopment in react & node.pdf" },
 ];
+
